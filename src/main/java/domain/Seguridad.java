@@ -14,7 +14,7 @@ public class Seguridad extends Usuario {
     }
 
     public List<Viaje> getViajes(Date desde,Date hasta){
-        this.metroviasService.getViajes(desde,hasta);
+        return this.metroviasService.getViajes(desde,hasta);
     }
 
 

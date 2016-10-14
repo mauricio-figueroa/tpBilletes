@@ -24,8 +24,10 @@ public class MetroViasService {
         Viaje viaje = this.getViaje(idViaje);
         Billete billete=null;
         if (viaje != null) {
-          billete = viaje.comprarBilelte(clase, fumador, tipoPago, name);
+          billete = viaje.comprarBilelte(clase, fumador);
             if (billete == null) {
+                billete.setNombrePasajero(name);
+                billete.setTipoPago(tipoPago);
                 billete.setIdViaje(idViaje);
                 billetes.add(billete);
             }
@@ -33,6 +35,23 @@ public class MetroViasService {
         return billete;
 
     }
+
+    public Billete comprarBillete(Enum<TipoPago> tipoPago, String name, String idViaje) {
+        Viaje viaje = this.getViaje(idViaje);
+        Billete billete=null;
+        if (viaje != null) {
+            billete = viaje.comprarBilelte();
+            if (billete == null) {
+                billete.setNombrePasajero(name);
+                billete.setTipoPago(tipoPago);
+                billete.setIdViaje(idViaje);
+                billetes.add(billete);
+            }
+        }
+        return billete;
+
+    }
+
 
     private Viaje getViaje(String idViaje) {
         for (Viaje viajeActual : this.viajes) {
@@ -42,7 +61,6 @@ public class MetroViasService {
         }
         return null;
     }
-
 
     public List<Billete> getDisposicionViajeros(String idViaje) {
         List<Billete> billetesDeViaje=new ArrayList<Billete>();

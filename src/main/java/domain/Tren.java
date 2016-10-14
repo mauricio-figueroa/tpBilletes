@@ -31,4 +31,16 @@ public class Tren {
         }
         return null;
     }
+
+    public Billete comprarBillete() {
+        for (Vagon vagonActual:this.vagones) {
+            if(vagonActual.tieneAsientos()&&vagonActual.tieneAsientos()){
+                int numAsiento= vagonActual.comprarBillete();
+                return new Billete(vagonActual.getNumVagon() ,numAsiento);
+            }
+
+        }
+        return null;
+
+    }
 }

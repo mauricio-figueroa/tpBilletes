@@ -34,7 +34,6 @@ public class Vagon {
     }
 
     public int comprarBillete() {
-
         int numAsiento= this.asientosDisponibles;
         this.asientosDisponibles--;
         return numAsiento;

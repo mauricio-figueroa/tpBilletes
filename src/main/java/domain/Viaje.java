@@ -25,11 +25,17 @@ public class Viaje {
         return this.id;
     }
 
-    public Billete comprarBilelte(Enum<TipoVagon> clase, boolean fumador, Enum<TipoPago> tipoPago, String name) {
-        Billete billete= this.tren.comprarBillete(clase,fumador);
+    public Billete comprarBilelte() {
+        Billete billete= this.tren.comprarBillete();
         if(billete!= null){
-            billete.setTipoPago(tipoPago);
-            billete.setNombrePasajero(name);
+            return billete;
+        }
+        return billete;
+    }
+
+    public Billete comprarBilelte(Enum<TipoVagon> clase, boolean fumador) {
+        Billete billete= this.tren.comprarBillete();
+        if(billete!= null){
             return billete;
         }
         return billete;
